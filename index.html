@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #be185d;
+            --secondary-color: #db2777;
+            --background-gradient: linear-gradient(135deg, #fbcfe8 0%, #fdf2f8 100%);
+            --light-background: #fdf2f8;
+            --text-color: #4a5568;
+            --box-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: var(--background-gradient);
+            color: var(--text-color);
+        }
+
+        .login-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .login-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px var(--box-shadow);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .login-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--box-shadow);
+        }
+
+        .login-card {
+            flex: 1;
+            text-align: center;
+        }
+
+        .login-card h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #fbcfe8;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(219, 39, 119, 0.3);
+        }
+
+        .nav-menu {
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px var(--box-shadow);
+        }
+
+        .nav-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-item {
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            background: var(--light-background);
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(190, 24, 93, 0.2);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 5px 15px rgba(190, 24, 93, 0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--box-shadow);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid #fce7f3;
+        }
+
+        .message:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .intro-section {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 10px 25px var(--box-shadow);
+        }
+
+        .intro-section img {
+            width: 100%;
+            max-width: 300px;
+            margin: 2rem 0;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px var(--box-shadow);
+        }
+
+        .intro-section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: var(--light-background);
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .login-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-list {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .intro-section {
+                padding: 2rem;
+            }
+
+            .intro-section img {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginSection">
+        <div class="login-content animate__animated animate__fadeIn">
+            <div class="login-image">
+                <img src="imagenes/1.jpg" alt="Feliz Cumpleaños">
+            </div>
+            <div class="login-card">
+                <h2>¡Bienvenido/a!</h2>
+                <form class="login-form" onsubmit="return login(event)">
+                    <input type="password" id="password" placeholder="Ingresa la contraseña" required>
+                    <button type="submit" class="login-button">Celebrar Juntos</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent" style="display: none;">
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item active" onclick="showSection('section-inicio')">🎉 Inicio</li>
+                <li class="nav-item" onclick="showSection('section-fotos')">📸 Fotos</li>
+                <li class="nav-item" onclick="showSection('section-mensajes')">💌 Mensajes</li>
+                <li class="nav-item" onclick="showSection('section-deseos')">🌟 Deseos</li>
+            </ul>
+        </nav>
+
+        <section id="section-inicio" class="section active">
+            <div class="intro-section">
+                <img src="imagenes/2.jpg" alt="Cumpleañera">
+                <h2>”Feliz cumpleaños a una de las personas más increíbles que conozco. Eres una luz en mi vida, una fuente de inspiración y un refugio en momentos difíciles. Me siento afortunado de tenerte en mi vida. Desde el momento en que te conocí, supe que eras alguien especial. Tu sonrisa ilumina cualquier habitación, tu risa es contagiosa y tu corazón es puro y lleno de amor.
+                   En este día tan especial, te deseo todo lo mejor: amor, felicidad, salud y realización de tus sueños. Que este año y los que van a venir, sean y hallan sido los mejores de tu vida, lleno de aventuras, experiencias inolvidables y momentos de alegría compartidos con las personas que más te importan.
+                     Quiero agradecerte por ser una amiga tan increíble. Por estar siempre allí para mí, por escucharme cuando necesito hablar, por hacerme reír cuando estoy triste y por ser un ejemplo de bondad, compasión y generosidad.
+                    Te quiero mucho, amiga mía. Feliz cumpleaños de nuevo. ¡Que todos tus sueños se hagan realidad en este nuevo año de vida!"🎁</p>
+            </div>
+        </section>
+
+        <section id="section-fotos" class="section">
+            <div class="gallery">
+                <div class="photo-card">
+                    <img src="imagenes/3.jpg" alt="Momento especial">
+                </div>
+                <div class="photo-card">
+                    <img src="imagenes/4.jpg" alt="Recuerdo divertido">
+                </div>
+                <div class="photo-card">
+                    <img src="imagenes/5.jpg" alt="Amistad verdadera">
+                </div>
+            </div>
+        </section>
+
+        <section id="section-mensajes" class="section">
+            <div class="messages">
+                <div class="message">
+                    <p>Querida amiga, en este día tan especial quiero decirte que eres una persona increíble.</p>
+                    <div class="author"> 💕</div>
+                </div>
+                <div class="message">
+                    <p>Espero que este año esté lleno de felicidad, amor y éxito. ¡Feliz cumpleaños!</p>
+                    <div class="author"> 🎂</div>
+                </div>
+                <div class="message">
+                    <p>No importa cuántos años pasen, nuestra amistad siempre será especial. ¡Te quiero mucho!</p>
+                    <div class="author"> 🌟</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-deseos" class="section">
+            <h2 style="text-align: center; color: var(--secondary-color);">Deseos Especiales</h2>
+            <ul style="list-style: none; padding: 0; margin: 2rem auto; max-width: 600px;">
+                <li style="background: var(--light-background); margin: 1rem 0; padding: 1rem; border-radius: 12px; text-align: center;">
+                    Que siempre tengas motivos para sonreír. 😄
+                </li>
+                <li style="background: var(--light-background); margin: 1rem 0; padding: 1rem; border-radius: 12px; text-align: center;">
+                    Que la felicidad te acompañe en cada paso. 🌈
+                </li>
+                <li style="background: var(--light-background); margin: 1rem 0; padding: 1rem; border-radius: 12px; text-align: center;">
+                    ¡Y que tus sueños se hagan realidad! ✨
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Con todo mi cariño en tu día especial ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        function login(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            if (password === '16122008') {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            } else {
+                alert('Contraseña incorrecta. Intenta nuevamente.');
+            }
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
